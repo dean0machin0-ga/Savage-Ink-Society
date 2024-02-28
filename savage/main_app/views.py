@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Profile  # Import the Profile model
+from .models import Profile
 
 # Home Page
 def home(request):
