@@ -15,3 +15,10 @@ def profile_list(request):
     return render(request, 'profiles/list.html', {
         'profiles': profiles
     })
+
+# Details Page
+def profile_details(request, profile_id):
+    profile = Profile.objects.get(id=profile_id)
+    return render(request, 'profiles/details.html', { 
+        'profile': profile
+    })
