@@ -1,10 +1,9 @@
-from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from .models import Profile
-from django import forms
+from .forms import ProfileForm
 
 # Home View
 def home(request):
@@ -28,26 +27,10 @@ def profile_details(request, profile_id):
         'profile': profile
     })
 
-# Define the ProfileForm
-class ProfileForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = '__all__'
-    
-    def __init__(self, *args, **kwargs):
-        super(ProfileForm, self).__init__(*args, **kwargs)
-        self.fields['user'].queryset = User.objects.all() 
-
-    def __init__(self, *args, **kwargs):
-            super(ProfileForm, self).__init__(*args, **kwargs)
-            self.fields['user'].required = True
-            self.fields['user'].empty_label = None
-            self.fields['user'].queryset = User.objects.all()
-
 # Create View
 class ProfileCreate(CreateView):
     model = Profile
-    form_class = ProfileForm  # Use the custom ProfileForm
+    form_class = ProfileForm 
     success_url = '/profiles/'
 
     def form_valid(self, form):
