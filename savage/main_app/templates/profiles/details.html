@@ -15,5 +15,9 @@
                     <p class="card-text"><strong>Born Day 🍼: </strong>{{ profile.birth_date }}</p>
                     <p class="card-text"><strong>Years Young 🔞: </strong>{{ profile.age }}</p>
                 </div>
+                <div class="card-action">
+                    <a href="{% url 'profile_update' profile.id %}">EDIT</a>
+                    <a href="{% url 'profile_delete' profile.id %}">DELETE</a>
+                </div>
             </div>
 {% endblock %}
