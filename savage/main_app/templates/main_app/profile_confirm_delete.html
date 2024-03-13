@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="white-text" style="text-shadow: 2px 2px 4px #000;">SCRUB PROFILE</h1>
+
+    <h4 class="white-text" style="text-shadow: 2px 2px 4px #000;">No turning back! Sure you wanna wipe  <span class="red-text">{{ object.user }}</span></h4>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Wipe It" class="btn">
+        <a href="{% url 'details' profile.id %}" class="white-text" style="text-shadow: 2px 2px 4px #000;">Back Out 🏳️</a>
+    </form>
+{% endblock %}
