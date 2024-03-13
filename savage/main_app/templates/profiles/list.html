@@ -3,13 +3,13 @@
 {% block content %}
 
 <div class="container">
-    <h1 class="text-white" style="text-shadow: 2px 2px 4px #000;">Ink Profiles 💀</h1>
-    <hr class="text-white">
+    <h1 class="white-text" style="text-shadow: 2px 2px 4px #000;">Ink Profiles 💀</h1>
+    <hr class="white-text">
 
     {% for profile in profiles %}
         <div class="card">
             <a href="{% url 'details' profile.id %}">
-                <div class="card-content">
+                <div class="card-content black-text" style="text-shadow: 2px 2px 4px #000;">
                     <span class="card-title">{{ profile.user|linebreaks }}</span>
                     <p>Location: {{ profile.location }}</p>
                 </div>
