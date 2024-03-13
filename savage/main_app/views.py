@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from .models import Profile
 from .forms import ProfileForm
@@ -36,3 +36,13 @@ class ProfileCreate(CreateView):
     def form_valid(self, form):
         profile = form.save()
         return redirect('details', profile_id=profile.id)
+    
+# Update View
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['bio', 'location', 'birth_date', 'trological_sign']
+
+# Delete View
+class ProfileDelete(DeleteView):
+    model = Profile
+    success_url = '/profiles'
