@@ -40,7 +40,7 @@ class ProfileCreate(CreateView):
 # Update View
 class ProfileUpdate(UpdateView):
     model = Profile
-    fields = ['bio', 'location', 'birth_date', 'trological_sign']
+    fields = ['bio', 'location', 'birth_date', 'astrological_sign']
 
 # Delete View
 class ProfileDelete(DeleteView):
