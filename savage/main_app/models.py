@@ -1,6 +1,7 @@
 from datetime import date
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
@@ -29,3 +30,17 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse('details', kwargs={'profile_id': self.id})
+
+class TattooShop(models.Model):
+    name = models.CharField(max_length=250)
+    price_range = models.CharField(max_length=10, blank=True, null=True)
+    rating = models.FloatField()
+    review_count = models.IntegerField()
+    address = models.TextField
+    phone = models.IntegerField()
+    business_link = models.URLField()
+    photo = models.URLField
+
+class Pics(models.Model):
+    url = models.CharField(max_length=200)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)

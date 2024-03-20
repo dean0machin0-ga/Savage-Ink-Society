@@ -8,15 +8,15 @@
             <!-- Profile Info -->
             <div class="card mb-4" style="background-color: white; color: black;">
                 <div class="card-body text-center">
-                    <h5 class="card-title">{{ profile.user.username }}</h5>
+                    <h5 class="card-title" style="text-shadow: 2px 2px 4px #000;"><strong>{{ profile.user.username }}</strong></h5>
                     <p class="card-text"><strong>Government Name 🪪: </strong>{{ profile.user.get_full_name }}</p>
                     <p class="card-text"><strong>Life Story 📖: </strong>{{ profile.bio }}</p>
                     <p class="card-text"><strong>Star Sign 💫: </strong>{{ profile.astrological_sign }}</p>
                     <p class="card-text"><strong>Born Day 🍼: </strong>{{ profile.birth_date }}</p>
                     <p class="card-text"><strong>Years Young 🔞: </strong>{{ profile.age }}</p>
                 </div>
-                <div class="card-action">
-                    <a href="{% url 'profile_update' profile.id %}">EDIT</a>
+                <div class="card-action" >
+                    <a href="{% url 'profile_update' profile.id %}" style="background-color: black; color: white;">EDIT</a>
                     <a href="{% url 'profile_delete' profile.id %}">DELETE</a>
                 </div>
             </div>
